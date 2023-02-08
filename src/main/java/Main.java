@@ -3,12 +3,10 @@ import java.util.List;
 import java.util.Scanner;
 public class Main {
     public static void main(String args[]) {
-        Boolean found = false;
+//        Boolean found = false;
         Contact myObject = new Contact();
-        String[] myContacts = {};
-        String[] myContactNew = {};
-//        ArrayList<String> myContacts = new ArrayList<>();
-//        ArrayList<ArrayList> myContactNew = new ArrayList<>();
+        ArrayList<String> myContacts = new ArrayList<>();
+        ArrayList<ArrayList> myContactNew = new ArrayList<>();
         System.out.println("Welcome to your Contacts List!");
         while (true) {
             Scanner questionMain = new Scanner(System.in);
@@ -26,10 +24,11 @@ public class Main {
                 Scanner questionPhone = new Scanner(System.in);
                 System.out.println("Phone:");
                 myObject.answerPhone = questionPhone.nextLine();
-                Scanner questionFavorite = new Scanner(System.in);
 
                 myContacts.add("\nName: " + myObject.answerName + "\n" + "Email: " + myObject.answerEmail + "\n" + "Phone: " + myObject.answerPhone + "\n");
-
+                System.out.println(myContacts);
+//                myContactNew.add(myContacts);
+//                System.out.println(myContactNew);
 
 
             } else if (answerMain.equals("All")) {
@@ -41,14 +40,52 @@ public class Main {
                 String answerName2;
                 System.out.println("\nName: ");
                 answerName2 = questionName2.nextLine();
-                System.out.println(answerName2);
+//                System.out.println(answerName2);
+                for (String i : myContacts){
+                    if (i.contains(answerName2)){
+                        System.out.println("Hello");
+                        myContacts.remove(i);
+                    }
+                }
+                System.out.println(myContacts);
 
-            } else if (answerMain.equals("Delete")) {
-                Scanner questionName3 = new Scanner(System.in);
-                String answerName3;
-                System.out.println("\nName: ");
-                answerName3= questionName3.nextLine();
-                System.out.println(answerName3);
+
+
+//                for(ArrayList a : myContactNew){
+//                    System.out.println(a);
+//                    System.out.println(myContacts);
+//                    if(a.equals(myContacts) ){
+//                        myContactNew.remove(myContacts);
+//                        System.out.println("Booop");
+//                        Scanner questionName3 = new Scanner(System.in);
+//                        System.out.println("\nName:");
+//                        myObject.answerName = questionName3.nextLine();
+//                        Scanner questionEmail3 = new Scanner(System.in);
+//                        System.out.println("Email:");
+//                        myObject.answerEmail = questionEmail3.nextLine();
+//                        Scanner questionPhone3 = new Scanner(System.in);
+//                        System.out.println("Phone:");
+//                        myObject.answerPhone = questionPhone3.nextLine();
+//                        myContacts.add("\nName: " + myObject.answerName + "\n" + "Email: " + myObject.answerEmail + "\n" + "Phone: " + myObject.answerPhone + "\n");
+//                        myContactNew.add(myContacts);
+//                        System.out.println(myContactNew);
+//
+//                    }
+//                }
+//
+//            } else if (answerMain.equals("Delete")) {
+//                Scanner questionName2 = new Scanner(System.in);
+//                String answerName2;
+//                System.out.println("\nName: ");
+//                answerName2 = questionName2.nextLine();
+//                System.out.println(answerName2);
+//                for(String a : myContacts){
+//                    System.out.println(a);
+//                    if(a.equals("\nName: " + myObject.answerName + "\n" + "Email: " + myObject.answerEmail + "\n" + "Phone: " + myObject.answerPhone + "\n") ){
+//                        myContacts.remove(a);
+//
+//                    }
+//                }
 
             } else if (answerMain.equals("Quit")) {
                 break;
